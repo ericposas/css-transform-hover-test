@@ -1,0 +1,63 @@
+html,
+body {
+  margin: 0;
+  font-family: 'Ubuntu';
+}
+
+.test {
+  color: hsl(360, 100%, 100%);
+  background-color: hsl(0, 100%, 50%);
+  display: inline-block;
+  border-radius: 4px;
+  padding: 40px;
+}
+
+.transform {
+  // matrix signature (close to):
+  // matrix( scaleX, skewX(angle), skewY(angle), scaleY, translateX, translateY)
+  // to create a rotation, use the skewX/Y values (one positive, the other negative)
+  // ..depending on direction of rotation
+  // larger rotations require you to also adjust the scale values
+  // transform: matrix(.6, -2.5, 2.5, .6, 10, 10);
+  // ..much easier to use the premade functions of scale(), rotate(), and translate()
+  transform: translate(20px, 20px);
+  cursor: pointer;
+}
+
+.hover{
+  animation: my-animation .75s ease both;
+}
+
+.no-hover{
+  animation: my-animation-mouseout .25s ease;
+}
+
+@keyframes my-animation {
+  20% {
+    transform: translate(20px, 20px) scale(1.5) rotate(360deg);
+  }
+  60% {
+    transform: translate(20px, 20px) scale(.8);
+  }
+  70% {
+    transform: translate(20px, 20px) scale(1.05);
+  }
+  80% {
+    transform: translate(20px, 20px) scale(0.95);
+  }
+  90% {
+    transform: translate(20px, 20px) scale(1.02);
+  }
+  100% {
+    transform: translate(20px, 20px) scale(1.0);
+  }
+}
+
+@keyframes my-animation-mouseout {
+  50% {
+    transform: translate(20px, 20px) scale(1.05);
+  }
+  100% {
+    transform: translate(20px, 20px) scale(1.0);
+  }
+}
